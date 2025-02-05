@@ -1,7 +1,11 @@
-# **GitHub Repository Naming Standards \- IaC**
+# GitHub Repository Naming Standards
+
+## IaC
+| General Format                                                                      |
+|-------------------------------------------------------------------------------------|
+
 
 | Format |  |  |  |
-| :---- | :---: | :---- | :---- |
 | **org-language-provider-product*\[-env\]\[-desc\]*** |  |  |  |
 | All values are lowercase, separated by a hyphen. The environment component is optional. |  |  |  |
 | **Component** | **Required?** | **Description** | **Examples** |
