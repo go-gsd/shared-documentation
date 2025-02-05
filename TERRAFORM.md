@@ -1,7 +1,7 @@
 # **Google Cloud Terraform Resource Naming Standards**
 
-| Resource | Format                                 |
-|----------|----------------------------------------|
-| General  | resource-product-env_\[-desc\]\[-id\]_ |
+| Resource | Format                                       |
+|----------|----------------------------------------------|
+| General  | **resource-product-env**\[_-desc_\]\[_-id_\] |
 
-_hello_
+
