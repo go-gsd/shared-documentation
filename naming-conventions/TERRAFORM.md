@@ -1,12 +1,24 @@
-# **Google Cloud Terraform Resource Naming Standards**
+# Terraform Naming Standards
 
-| Resource | Format                                       |
-|----------|----------------------------------------------|
-| General  | **resource-product-env**\[_-desc_\]\[_-id_\] |
+| General Format                                                                      |
+|-------------------------------------------------------------------------------------|
+| **resource-\[org]-product-env**\[_-desc_\]\[_-id_\]                                 |
+| All fields are lowercase, separated by a hyphen. The desc and id field is optional. |
+
+| Field    | Required? | Description                                                                   |
+|----------|-----------|-------------------------------------------------------------------------------|
+| resource | Yes       | Terraform resource                                                            |
+| org      | No        | Organization name                                                             |
+| product  | Yes       | Product (or application) name                                                 |
+| env      | Yes       | Environment (e.g., sbx, dev, stg, nonprd, prd). Must be 3 characters or less. |
+| desc     | No        | Additional descriptor for clarity                                             |
+| id       | No        | Unique identifier. Can be numeric, string, or mixed.                          |
+
+## GCP
 
 | Resource           | Acronym               | Format                                            | Example                                                                                                                                                                | Notes                                      |
 |--------------------|-----------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-| Project            | N/A                   | **org-product**\[_-env_\]\[_-desc_\]\[_-id_\]     | gsdorg-aiproduct-dev                                                                                                                                                   | 30 character max                           |
+| Project            | prj                   | **prj-org-product**\[_-env_\]\[_-desc_\]          | gsdorg-aiproduct-dev                                                                                                                                                   | 30 character max                           |
 | Service Account    | sa                    | **sa-product-env-desc**\[_-id_\]                  | sa-aiproduct-dev-gke                                                                                                                                                   | 30 character max                           |
 | Shared VPC         | vpcs                  | **vpcs-product-env**\[_-desc_\]\[_-id_\]          | vpcs-aiproduct-stg                                                                                                                                                     |                                            |
 | VPC                | vpc                   | **vpc-product-env**\[-desc\]\[-id\]               | vpc-aiproduct-stg                                                                                                                                                      |                                            |
@@ -17,7 +29,7 @@
 | IP Address         | ip                    | **ip-product-env-\[ext\|int\]**\[_-desc_][_-id_\] | ip-aiproduct-qa-ext-ingress                                                                                                                                            |                                            |
 | SSL Certificate    | ssl                   | **ssl-product-env-desc**\[_-id_\]                 | ssl-aiproduct-sbx-appcreator                                                                                                                                           |                                            |
 | VM                 | vm                    | **vm-product-env**\[_-desc_\]\[_-id_\]            | vm-aiproduct-sbx-0a1b                                                                                                                                                  | 63 character max                           |
-| VM Name            |                       |                                                   | dev-vm                                                                                                                                                                 | No spaces, unique                          |
+| VM Name            |                       | **env-**                                          | dev-vm                                                                                                                                                                 | No spaces, unique                          |
 | Persistent Disk    | pd                    | **pd-product-env**\[_-desc_\]\[_-id_\]            |                                                                                                                                                                        |                                            |
 | Hyperdisk          | hd                    | **hd-product-env**\[_-desc_\]\[_-id_\]            |                                                                                                                                                                        |                                            |
 | Local SSD          | ssd                   | **ssd-product-env**\[_-desc_\]\[_-id_\]           |                                                                                                                                                                        |                                            |
