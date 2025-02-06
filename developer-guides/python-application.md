@@ -90,7 +90,7 @@
 
 #### Configure the `gcloud` command line tool to connect to a Google Cloud environment and GKE cluster:
 
-* Create a `gcloud` configuration (using the sandbox project as an example, where `<account>` is your BCG email address)
+* Create a `gcloud` configuration (using the sandbox project as an example, where `<account>` is your corporate email address)
     ```shell
     gcloud config configurations create prj-python-demo
     gcloud config set project prj-python-demo-sbx-3839 --configuration prj-python-demo
