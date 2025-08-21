@@ -40,9 +40,7 @@ export INSTANCE_NAME="your-instance-name"
 export CONN_NAME=$(gcloud sql instances describe $INSTANCE_NAME --format='value(connectionName)')
 ```
 
-### 2. Prerequisites
-
-#### Database Client (Local Installation)
+### 2. Database Client Installation
 Install the appropriate database client on your local machine:
 
 **PostgreSQL Client:**
@@ -63,7 +61,7 @@ brew install mysql-client
 sudo apt install -y default-mysql-client
 ```
 
-### 3. Bastion Host Setup (Cloud SQL Proxy Installation)
+### 3. Cloud SQL Proxy Installation
 SSH into your bastion host and install the Cloud SQL Proxy:
 
 ```bash
@@ -83,7 +81,7 @@ chmod +x cloud-sql-proxy
 
 ## Connecting to the Database
 
-### 4. Establish an SSH TUnnel
+### 4. Establish an SSH Tunnel
 From your local machine, create an SSH tunnel with port forwarding to connect through the bastion host:
 
 ```bash
@@ -98,10 +96,10 @@ This command:
 - Forwards the database port from the bastion host to your local machine
 - Starts the Cloud SQL Proxy on the bastion host
 
-### 5. Connect to Your Database
-Once the tunnel is established, connect to your database from another terminal.
+### 5. Connect to the Database
+Once the tunnel is established, connect to your database from **another terminal**.
 
-Set the following environment variables:
+Set the following environment variable:
 
 ```bash
 # Database username
