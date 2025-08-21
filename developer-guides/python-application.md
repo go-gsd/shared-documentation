@@ -15,22 +15,22 @@
 #### Application Setup
 
 * Clone from GitHub
-  ```shell
+  ```bash
   git clone git@github.com:go-gsd/demo.git
   ```
 * Change directory
-  ```shell
+  ```bash
   cd demo
   ```
 * Create Python environment and install dependencies
-  ```shell
+  ```bash
   poetry install
   ```
 
 ### <a name="running"></a>Running
 
 * The following command will obtain user access credentials and put them in `$HOME/.config/gcloud/application_default_credentials.json`
-  ```
+  ```bash
   gcloud auth application-default login
   ```
 * Copy the `.env.template` file and name it `.env`
@@ -39,26 +39,26 @@
 #### Run using Python
 
 * Activate the Python environment
-  ```shell
+  ```bash
   poetry shell
   ```
 * _Note: To exit a Python environment use the following command_
-  ```shell
+  ```bash
   exit
   ```
 * Start the application
-  ```shell
+  ```bash
   uvicorn app.main:app --reload
   ```
 
 #### Run using Docker
 
 * Start with `docker-compose`:
-  ```shell
+  ```bash
   docker compose up --build
   ```
 * Check to see if the application is running
-  ```shell
+  ```bash
   curl localhost:8000
   ```
 
@@ -67,15 +67,15 @@
 #### Please run the following before committing code:
 
 * `flake8` to resolve linting issues
-  ```shell
+  ```bash
   poetry run flake8
   ```
 * `radon` to get complexity score (1-5: A-perfect, 6-10: B-low, 11-20: C-moderate, 21-30: D-high, 31+: F-unstable)
-  ```shell
+  ```bash
   poetry run radon cc app -na --total-average
   ```
 * `black` to format code
-  ```shell
+  ```bash
   poetry run black .
   ```
 
@@ -91,42 +91,42 @@
 #### Configure the `gcloud` command line tool to connect to a Google Cloud environment and GKE cluster:
 
 * Create a `gcloud` configuration (using the sandbox project as an example, where `<account>` is your corporate email address)
-    ```shell
+    ```bash
     gcloud config configurations create prj-python-demo
     gcloud config set project prj-python-demo-sbx-3839 --configuration prj-python-demo
     gcloud config set account <account> --configuration prj-python-demo
     ```
 * Activate a `gcloud` configuration
-    ```shell
+    ```bash
     gcloud config configurations activate prj-python-demo
     ```
 * Update `$HOME/.kube/config` to point kubectl to the `prj-python-demo-a1ff0d61` GKE cluster
-    ```shell
+    ```bash
     gcloud container clusters get-credentials prj-python-demo-a1ff0d61 --region us-east1
     ```
 
 #### Remote Environment
 
 * Port-forward to the running pod
-    ```shell
+    ```bash
     kubectl -n lh port-forward $(kubectl get pods -n lh | ggrep Running | ggrep demo-service | awk '{print $1}') 8010:80
     ```
 * Tail logs from the running pod
-    ```shell
+    ```bash
     kubectl -n lh logs -f $(kubectl get pods -n lh | ggrep Running | ggrep demo-service | awk '{print $1}')
     ```
 * SSH into the running pod
-    ```shell
+    ```bash
     kubectl -n lh exec -it $(kubectl get pods -n lh | ggrep Running | ggrep demo-service | awk '{print $1}') -- /bin/sh
     ```
 * Restart the running pod
-    ```shell
+    ```bash
     kubectl -n lh delete pod $(kubectl get pods -n lh | ggrep Running | ggrep demo-service | awk '{print $1}')
     ```
 
 ### Local Environment (developer workstation)
 
 * SSH into a running Docker container
-    ```shell
-    docker exec -it <container id>
+    ```bash
+    docker exec -it <container_id> /bin/bash
     ```

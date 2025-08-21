@@ -14,7 +14,7 @@
 
 ### Repository Setup
 * Clone the Repository
-  ```shell
+  ```bash
   # Clone using SSH
   git clone git@github.com:go-gsd/demo.git
 
@@ -30,27 +30,28 @@ encapsulation makes it easy for multiple developers to work on a particular feat
 main branch will never contain broken code, which is a huge advantage for continuous integration environments.
 
 1. **Create a Feature Branch.** Replace `your-feature-name` with a descriptive name for your feature.
-  ```shell
+  ```bash
   git checkout -b feature/your-feature-name
   ```
 
-2. **Make Changes.** Edit, add, or remove files related to your feature.*
+2. **Make Changes.** Edit, add, or remove files related to your feature.
 
 3. **Run Code Quality Checks.** This will execute code quality checks configured in the `pre-commit-config.yaml` file.
-  ```shell
+  ```bash
   pre-commit run --all-files
   ```
+
 4. **Commit Changes.** Commit your changes regularly.
-  ```shell
+  ```bash
   # Stage all changes
   git add -A 
-  
+
   # Commit with a clear, descriptive message
   git commit -m "My clear, descriptive message"
   ```
 
 5. **Push and Create Pull Request.**
-  ```shell
+  ```bash
   # Push your feature branch to remote
   git push origin feature/your-feature-name
   ```
@@ -59,12 +60,12 @@ main branch will never contain broken code, which is a huge advantage for contin
 - Ensure all code quality checks pass.
 
 6. **Post-Merge Cleanup.**
-  ```shell
+  ```bash
   # Delete local feature branch after successful merge
   git checkout main
   git pull
   git branch -d feature/your-feature-name
-  
+
   # Delete remote feature branch
   git push origin --delete feature/your-feature-name
   ```
