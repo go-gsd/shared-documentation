@@ -4,7 +4,7 @@
 
 1. [Python Application](developer-guides/python-application.md)
 2. [Terraform Workflow](developer-guides/terraform-workflow.md)
-3. [gCloud Configuration](developer-guides/gcloud-configuration.md)
+3. [Google Cloud CLI Configuration](developer-guides/gcloud-configuration.md)
 4. [Cloud SQL Connectivity](developer-guides/cloudsql-connectivity.md)
 
 ## Naming Conventions

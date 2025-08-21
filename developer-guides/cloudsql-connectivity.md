@@ -63,8 +63,8 @@ brew install mysql-client
 sudo apt install -y default-mysql-client
 ```
 
-### 3. Bastion Host Setup
-SSH into your bastion host and install the Cloud SQL Auth Proxy:
+### 3. Bastion Host Setup (Cloud SQL Proxy Installation)
+SSH into your bastion host and install the Cloud SQL Proxy:
 
 ```bash
 # Connect to bastion host
@@ -74,7 +74,7 @@ gcloud compute ssh $BASTION_HOST --tunnel-through-iap
 Once connected to the bastion host, run these commands:
 
 ```bash
-# Download Cloud SQL Proxy
+# Download Cloud SQL Auth Proxy
 curl -o cloud-sql-proxy https://storage.googleapis.com/cloud-sql-connectors/cloud-sql-proxy/v2.18.0/cloud-sql-proxy.linux.amd64
 
 # Make the Cloud SQL Proxy executable
@@ -83,7 +83,7 @@ chmod +x cloud-sql-proxy
 
 ## Connecting to the Database
 
-### 4. Establish Connection
+### 4. Establish an SSH TUnnel
 From your local machine, create an SSH tunnel with port forwarding to connect through the bastion host:
 
 ```bash
@@ -120,5 +120,14 @@ psql --host=127.0.0.1 --port=5432 --username=$YOUR_DB_USER --password
 
 ## Additional Resources
 
-- [Cloud SQL Auth Proxy Documentation](https://cloud.google.com/sql/docs/mysql/connect-admin-proxy)
+### Identity-Aware Proxy (IAP)
+- [Concepts overview](https://cloud.google.com/iap/docs/concepts-overview)
+- [Using IAP for TCP forwarding](https://cloud.google.com/iap/docs/using-tcp-forwarding)
 
+### Cloud SQL Private IP
+- [Configure Private IP](https://cloud.google.com/sql/docs/mysql/configure-private-ip)
+- [Connectivity overview (Private IP)](https://cloud.google.com/sql/docs/mysql/connect-overview#private-ip)
+
+### Bastion Host on Google Cloud
+- [Set up a bastion host](https://cloud.google.com/compute/docs/instances/connecting-advanced#bastion)
+- [Best practices for bastion hosts](https://cloud.google.com/architecture/best-practices-for-using-a-bastion-host)
